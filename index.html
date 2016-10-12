@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+
+<html> 
+<head> 
+	<title>My first pop-up!</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="popup.css">
+	
+	<script type="text/javascript" src="handlebars-v1.3.0.js"></script>
+	<script type="text/javascript" src="jquery-2.1.1.js"></script>
+</head> 
+<body> 
+	<div id="container">
+		</div>
+		<div  id="structure">
+		<form id="ratingForm" action="process.php">
+		<div class="header">
+			<button id="button4">X</button>
+			<div id="popupReview">Review Pop-Up</div>
+		</div>
+		<div class="rateIt">
+			<div class="rateWriting">Rate it!</div>
+			<div class="images">
+				<div class="ratingStar" id="rate-1"></div> 
+				<div class="ratingStar" id="rate-2"></div>
+				<div class="ratingStar" id="rate-3"></div>
+				<div class="ratingStar" id="rate-4"></div>
+				<div class="ratingStar" id="rate-5"></div>
+			</div>
+			<p class="textAlert1">Please rate it!</p>
+		</div>
+				
+				<input id="inputName" type="text" placeholder="Please enter your name" />
+				<p class="textAlert2">Please enter your name!</p>
+				<input id="inputEmail" type="text" placeholder="Please enter your e-mail"/> 
+				<p class="textAlert3">Please enter a valid email!</p>
+				<input type="hidden" id="ratingValueStar" name="ratingValueStar" />
+				<input type="hidden" id="ratingValueRatedStar" name="ratingValueRatedStar" />
+				<input id="inputTitle" type="text" placeholder="Please enter your comment title" />
+				<p class="textAlert4">Please enter a title!</p>
+				<textarea id="inputComment" placeholder="Please enter your comment text"></textarea>
+				<p class="textAlert5">Please enter a comment text!</p>
+				<input id="buttonCancel" type="button" value="Cancel" />
+				<input id="buttonOk" type="submit" value="Ok" />
+				
+			</form>
+		</div>
+	
+	<div class="mainDiv">
+
+		<h1>Comments</h1>
+		<div class="comments">
+		
+			<script id="template" type="text/x-handlebars-template">
+			{{#each this}}
+			<div class="newComment">
+				<div class="title">
+					<p class="reviewText">{{reviewText}}</p>
+					<div class="rated">
+						<div class="unratedStars" id="rate-1">
+							<img src="{{imgUrl1}}">
+						</div> 
+						<div class="unratedStars" id="rate-2">
+							<img src="{{imgUrl2}}">
+						</div>
+						<div class="unratedStars" id="rate-3">
+							<img src="{{imgUrl3}}">
+						</div>
+						<div class="unratedStars" id="rate-4">
+							<img src="{{imgUrl4}}">
+						</div>
+						<div class="unratedStars" id="rate-5">
+							<img src="{{imgUrl5}}">
+						</div>
+					</div>
+				
+				</div>
+				<div class="contact">
+					<p class="name">{{name}}</p>
+					<p class="email">{{email}}</p>
+					<p class="date">{{dateTime}}</p>
+				</div>
+				<div class="theText">
+					<p class="introduction">{{title}}</p>
+					<button class="buttonEdit">Edit</button>
+					<p class="commentText">{{commentText}}</p>
+					
+				</div>
+			</div>
+			{{/each}}
+			</script>
+			
+			
+		</div>
+			<div>
+				<button id="buttonAddComment">Add Comment</button>
+			</div>
+	</div>
+		
+
+
+
+
+</body> 
+</html> 
+
+<script>
+
+var data = [
+	{
+		reviewText: 'Review Text',
+		imgUrl1: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl2: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl3: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl4: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl5: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		name: 'Ioana' ,
+		email: 'ioana@e-mail.com',
+		dateTime: '7/29/2014 - 03:13:00 PM',
+		title: 'hello',
+		commentText: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.'
+	},
+	{
+		reviewText: 'Review Text',
+		imgUrl1: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl2: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl3: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl4: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl5: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		name: 'Ion',
+		email: 'ion@e-mail.com',
+		dateTime: '7/29/2014 - 03:13:00 PM',
+		title: 'hi',
+		commentText: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.'	
+	},
+	{
+		reviewText: 'Review Text',
+		imgUrl1: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl2: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl3: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl4: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl5: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		name: 'maria',
+		email: 'maria@yahoo.com',
+		dateTime: '7/29/2014 - 03:13:00 PM',
+		title: 'buna',
+		commentText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	},
+	{
+		reviewText: 'Review Text',
+		imgUrl1: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl2: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl3: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl4: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl5: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		name: 'john',
+		email: 'john@gmail.com',
+		dateTime: '7/29/2014 - 03:13:00 PM',
+		title: 'hi',
+		commentText: 'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. '	
+	},
+	{
+		reviewText: 'Review Text',
+		imgUrl1: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl2: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl3: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl4: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		imgUrl5: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		name: 'alex',
+		email: 'alex@yahoo.com',
+		dateTime: '7/29/2014 - 03:13:00 PM',
+		title: 'salut',
+		commentText: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+	},
+	{
+		reviewText: 'Review Text',
+		imgUrl1: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl2: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl3: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl4: 'D:/my work/JQuery/Pop-up/img/star-on.png',
+		imgUrl5: 'D:/my work/JQuery/Pop-up/img/star-off.png',
+		name: 'ana',
+		email:  'ana@gamil.com',
+		dateTime: '7/29/2014 - 03:13:00 PM',
+		title: 'buna',
+		commentText: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.'
+	}
+];
+
+
+
+$.fn.insertComments = function() {
+	var addedComment = $('.newComment').last().clone(true, true);
+
+	reviewObject.colorRatedStars($('#ratingValueStar').val(), addedComment, false, 'ratedStars' );
+	
+
+	var valueTitle = $('#inputTitle').val();
+	var valueComment = $('#inputComment').val();
+	var valueName = $('#inputName').val();
+	var valueEmail = $('#inputEmail').val();
+
+	addedComment.find('.reviewText').html('Review text');
+	addedComment.find('.introduction').html(valueTitle);
+	addedComment.find('.commentText').html(valueComment);
+	addedComment.find('.name').html(valueName);
+	addedComment.find('.email').html(valueEmail);
+	addedComment.find('.unratedStars').children().hide();
+
+
+	var separator = " - ";
+	var dateTime = new Date();
+	var formattedDateTime = dateTime.toLocaleDateString() + separator + dateTime.toLocaleTimeString();
+	addedComment.find('.date').html(formattedDateTime);
+	
+	$('.comments').prepend(addedComment);
+	
+}
+
+$.fn.updateComments = function() {
+	
+	currentComment = $('.newComment').has('.clickedOnEdit');
+
+	currentComment.find('.unratedStars').removeClass('ratedStars');
+	reviewObject.colorRatedStars($('#ratingValueStar').val(), currentComment, false, 'ratedStars' );
+	
+	
+
+	var valueTitle = $('#inputTitle').val();
+	var valueComment = $('#inputComment').val();
+	var valueName = $('#inputName').val();
+	var valueEmail = $('#inputEmail').val();
+		
+	currentComment.find('.reviewText').html('Review edited text');
+	currentComment.find('.introduction').html(valueTitle);
+	currentComment.find('.commentText').html(valueComment);
+	currentComment.find('.name').html(valueName);
+	currentComment.find('.email').html(valueEmail);
+	currentComment.find('.date').html(formattedDateTime);
+	currentComment.find('.unratedStars').children().hide();
+
+	var separator = " - ";
+	var dateTime = new Date();
+	var formattedDateTime = dateTime.toLocaleDateString() + separator + dateTime.toLocaleTimeString();
+	currentComment.find('.date').html(formattedDateTime);
+}
+
+$.fn.closePopup = function() {
+	$('#structure').hide();
+	$('#container').hide();
+}
+
+var reviewObject = {
+	init : function() {
+
+	var template = Handlebars.compile( $('#template').html() );
+
+	$('div.comments').append( template(data) );
+
+		this.initEvents();
+	}, 
+
+	colorRatedStars : function (value, parentElem, removeClass, className) {
+		for ( i = 0; i <= value; i++) {
+			if (!removeClass) {
+				parentElem.find('#rate-' + i).addClass(className);
+			} else {
+				parentElem.find('#rate-' + i).removeClass(className);
+			}
+		}
+	},
+
+	validateEmail : function(valueEmail){
+	var valueEmail = $('#inputEmail').val();
+	  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	  if( !emailReg.test( valueEmail ) ) {
+	    return false;
+	  } else {
+	    return true;
+	  }
+	},
+
+	validateStars : function() {
+		if ($('.ratingStar').hasClass('ratedStar')) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	initEvents : function() {
+		
+		$('.buttonEdit').on('click', function() {
+			$(this).addClass('clickedOnEdit');
+
+			var valueTitle = $(this).siblings('.introduction').text();
+			var valueComment = $(this).siblings('.commentText').text();
+			var help =  $('.newComment').has(this);
+			var valueName = help.find('.name').text();
+			var valueEmail = help.find('.email').text();
+
+			if ( $(".newComment").has('.clickedOnEdit') ) {
+				reviewObject.colorRatedStars( 3, $('.images'), false, 'ratedStar' );
+				console.log('1');
+			} else {
+				reviewObject.colorRatedStars($('#ratingValueStar').val(), $('.images'), false, 'ratedStar' );
+				console.log('7');
+			}
+
+			$('#inputTitle').val(valueTitle);
+			$('#inputComment').val(valueComment);
+			$('#inputName').val(valueName);
+			$('#inputEmail').val(valueEmail);
+			$('#structure').show(500);
+			$('#container').show();
+		});
+		
+
+		$('#buttonAddComment').on('click', function() {	
+			$('.ratingStar').removeClass('ratedStar');
+			$('.ratingStar').removeClass('ratedStars');
+			$('#inputTitle').val("");
+			$('#inputComment').val("");
+			$('#inputName').val("");
+			$('#inputEmail').val("");
+			$('#structure').show(500);
+			$('#container').show();
+		});
+
+		$('#button4, #buttonCancel').on('click', function(e) {
+			e.preventDefault();
+			$('#structure').hide(500);
+			$('#container').hide();
+			$('.buttonEdit').removeClass('clickedOnEdit');
+		});
+
+		$('#structure').find($('.ratingStar')).on('click', function() {
+			ratingValueString = $(this).attr('id').split('-');
+			$('#ratingValueStar').val(ratingValueString[1]);
+			value = $('#ratingValueStar').val();
+			$('.ratingStar').removeClass('ratedStar');
+
+			reviewObject.colorRatedStars(value, $('#structure'), false, 'ratedStar');
+
+		});
+
+		$('#structure').find($('.ratingStar')).hover (
+			function() {
+				ratingValueString = $(this).attr('id').split('-');
+				$('#ratingValueStar').val(ratingValueString[1]);
+				value = $('#ratingValueStar').val();
+
+				reviewObject.colorRatedStars(value, $('#structure'), false, 'clicked');
+
+			}, function() {
+				reviewObject.colorRatedStars(value, $('#structure'), true, 'clicked');
+			}
+		);
+		
+		$('#buttonOk').on('click', function(e) {
+			e.preventDefault();
+		
+			var valueTitle = $('#inputTitle').val();
+			var valueComment = $('#inputComment').val();
+			var valueName = $('#inputName').val();
+			var valueEmail = $('#inputEmail').val();
+
+			if (reviewObject.validateStars() == false) {
+				$('.textAlert1').show();
+			} else {
+				$('.textAlert1').hide();
+			}
+			
+			if (valueName == "") {
+				$('.textAlert2').show();
+			} else {
+				$('.textAlert2').hide();
+			}
+
+			if (valueTitle == "") {
+				$('.textAlert4').show();
+			} else {
+				$('.textAlert4').hide();
+			}
+
+			if (valueComment == "" || valueComment.length < 10 ) {
+				$('.textAlert5').show();
+			} else {
+				$('.textAlert5').hide();
+			}
+	
+			if ( !reviewObject.validateEmail(valueEmail) || valueEmail == "") {
+				$('.textAlert3').show();
+			} else {
+				$('.textAlert3').hide();
+			}
+			
+
+			if (valueName != "" && reviewObject.validateEmail(valueEmail) && valueEmail != '' && valueTitle != "" && valueComment != ""  && reviewObject.validateStars() == true && valueComment.length > 10) {
+
+				if ($('.buttonEdit').hasClass('clickedOnEdit')) {
+					$.fn.updateComments();
+					$('.buttonEdit').removeClass('clickedOnEdit');
+					console.log('no');
+					$.fn.closePopup();
+				} else {
+					$.fn.insertComments();
+					$.fn.closePopup();
+				}
+			    
+				
+			}
+
+		});
+
+		$('#ratingForm').on('submit', function(e){
+			e.preventDefault();
+			$.fn.insertComments();
+			$.fn.closePopup();
+		});
+		
+	}
+};
+
+$( document ).ready(function() {
+	reviewObject.init();
+});
+</script>

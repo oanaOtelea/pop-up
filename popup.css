@@ -1,0 +1,455 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+	margin: 0;
+	font-family: Arial,Helvetica,sans-serif;
+}
+.mainDiv {
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	background-color: #000;
+}
+
+#structure {
+	display: none;
+	width: 415px;
+	height: 390px;
+	background-color: #000;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+	position: absolute;
+	opacity: 0.95;
+	margin: 30px auto 0;
+	margin-left: -207px;
+	margin-top: -207px;
+}
+
+.header {
+	margin-top: 10px;
+	height: 40px;
+}
+h1 {
+	font-size: 250%;
+	margin-bottom: 40px;
+	color: #fff;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+h2 {
+	font-size:200%;
+}
+
+.colorBlue {
+	color: #2ae9ee;
+}
+.colorGray {
+	color: #7a7d85;
+}
+.line {
+	background-color: #2ae9ee;
+	border: 1px solid;
+	width: 298px;
+	
+}
+.smallLine {
+	border: 1px solid;
+	width: 200px;
+	margin: 0 50px;
+}
+
+.rateIt {
+	height: 35px;
+	color: #fff;
+	font-size: 20px;
+}
+
+.rateWriting {
+	margin-left: 55px;
+	color: #fff;
+	float: left;
+	font-size: 17px;
+}
+
+.images {
+	width: 105px;
+	display: inline-block;
+	margin-left: 25px;
+}
+.unratedStars {
+	background-image: url('img/star-off.png');
+	float: left;
+	width: 16px;
+	height: 16px;
+	background-position: 0 0;
+	margin-right: 5px;
+}
+.ratingStar{
+	cursor: pointer;
+	background-image: url('img/star-off.png');
+	float: left;
+	width: 16px;
+	height: 16px;
+	background-position: 0 0;
+	margin-right: 5px;
+}
+.ratingStar:hover {
+	cursor: pointer;
+	background-image: url('img/star-on.png');
+}
+.ratedStar {
+	cursor: pointer;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background-position: 0 0;
+	margin-right: 5px;
+	background-image: url('img/star-on.png');
+}
+.ratedStars {
+	float: left;
+	width: 16px;
+	height: 16px;
+	background-position: 0 0;
+	margin-right: 5px;
+	background-image: url('img/star-on.png');
+}
+.ratedStars2 {
+	float: left;
+	width: 16px;
+	height: 16px;
+	background-position: 0 0;
+	margin-right: 5px;
+	background-image: url('img/star-on.png');
+}
+.clicked {
+	cursor: pointer;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background-position: 0 0;
+	margin-right: 5px;
+	background-image: url('img/star-on.png');
+}
+#inputTitle {
+	border-bottom: none;
+	width: 300px;
+	margin-left: 55px;
+	border: 1px solid #4D4545;
+	background-color: #000;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	color: #4D4545;
+	padding-top: 10px;
+}
+#inputComment {
+	height: 70px;
+	border-bottom: 2px solid #5B7172;
+	width: 300px;
+	margin-left: 55px;
+	border: 1px solid #4D4545;
+	background-color: #000;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	color: #4D4545;
+	resize: none;
+	font-family: sans-serif;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	overflow-y: hidden;
+}
+#inputName {
+	margin-left: 55px;
+	width: 300px;
+	border-top: none;
+	border: 1px solid #4D4545;
+	background-color: #000;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	color: #4D4545;
+	padding-top: 10px;
+}
+
+#inputEmail {
+	width: 300px;
+	margin-left: 55px;
+	border: 1px solid #4D4545;
+	background-color: #000;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	color: #4D4545;
+	padding-top: 10px;
+}
+
+.backgroundColor {
+	height: 210px;
+	
+}
+.buttons {
+	width: 300px;
+	height: 70px;
+	margin-top: 10px;
+}
+#buttonCancel {
+	width: 90px;
+	height: 40px;
+	background-color: #4D4545;
+	text-align: center;
+	cursor: pointer;
+	margin-left: 100px;
+	float: left;
+	margin-top: 5px;
+	color: #fff;
+	border: none;
+	background: linear-gradient(#070606, #221F1F);
+	font-size: 18px;
+}
+
+#buttonOk {
+	width: 90px;
+	height: 40px;
+	background-color: #4D4545;
+	text-align: center;
+	cursor: pointer;
+	float: right;
+	margin-right: 107px;
+	margin-top: 5px;
+	color: #fff;
+	border: none;
+	background: linear-gradient(#070606, #302A2A);
+	font-size: 18px;
+}
+#buttonCancel:hover {
+	color: #7a7d85;
+	cursor: pointer;
+}
+#buttonOk:hover {
+	color: #7a7d85;
+	cursor: pointer;
+}
+#buttonAddComment {
+	margin-top: 10px;
+	margin-left: 575px;
+	margin-bottom: 30px;
+}
+#button4 {
+	float: right;
+	border: none;
+	background-color: #000;
+	cursor: pointer;
+	color: #4D4545;
+	font-size: 25px;
+	margin-right: 20px;
+}
+
+#popupReview {
+	font-size: 27px;
+	color: #B46A6A;
+	float: left;
+	margin-left: 52px;
+	font-weight: 700;
+	font-family: serif;
+}
+
+::-webkit-input-placeholder {
+	color: #4D4545;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.5;
+	display: none;
+	z-index: 2;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+}
+.comments {
+	width: 700px;
+	height: 100%;
+	border: 1px solid #414350;
+	background-image: url('img/mr06Tkk.jpg');
+	background-repeat-x: no-repeat;
+	border-radius: 20px;
+	margin-top: 20px;
+}
+
+.comments h5 {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.newComment {
+   	background-color: #222224;
+	border: 1px solid #414350;
+	border-radius: 20px;
+	margin: 20px 20px 20px 100px;
+	font-family: monospace;
+	width: 580px;
+	color: #F5EFEF;
+}
+
+.none{
+	display: none;
+}
+.title {
+	width: 580px;
+	background-color: #312E2E;
+	border-radius: 20px 20px 0 0;
+	height: 15px;
+}
+.reviewText {
+	float: left;
+	margin-left: 25px;
+	margin-top: 10px;
+	font-weight: 800;
+}
+.rated {
+	float: right;
+	margin-top: 6px;
+	margin-right: 270px;
+}
+.contact {
+	border-bottom: 1px solid #000;
+	padding-bottom: 10px;
+	background-color: #312E2E;
+	width: 580px;
+}
+.name {
+	padding-top: 25px;
+	padding-left: 25px;
+	width: 50px;
+}
+.email {
+	padding-left: 205px;
+	float: left;
+	margin-top: -13px;
+	width: 129px;
+}
+.date {
+	float: right;
+	margin-top: -16px;
+	margin-right: 30px;
+}
+.introduction {
+	margin-left: 25px;
+	margin-top: 5px;
+	font-variant: small-caps;
+	font-size: 18px;
+	float: left;
+}
+.commentText {
+	margin-left: 25px;
+	margin-top: 35px;
+	margin-bottom: 7px;
+	margin-right: 25px;
+	overflow-wrap: break-word;
+}
+.theText {
+	background-color: #222224;
+	border: 1px solid #414350;
+	border-radius: 20px;
+	font-family: monospace;
+	width: 579px;
+	color: #F5EFEF;
+}
+.textAlert1 {
+	display: none;
+	color: rgb(218, 3, 3);
+	margin-left: 55px;
+	font-size: 15px;
+}
+.textAlert2 {
+	display: none;
+	color: rgb(218, 3, 3);
+	margin-left: 55px;
+	font-size: 15px;
+}
+.textAlert3 {
+	display: none;
+	color: rgb(218, 3, 3);
+	margin-left: 55px;
+	font-size: 15px;
+}
+.textAlert4 {
+	display: none;
+	color: rgb(218, 3, 3);
+	margin-left: 55px;
+	font-size: 15px;
+}
+.textAlert5 {
+	display: none;
+	color: rgb(218, 3, 3);
+	margin-left: 55px;
+	font-size: 15px;
+}
+.buttonEdit {
+	background-color: #222224;
+	border: none;
+	margin-top: 6px;
+	color: #F5EFEF;
+	font-style: oblique;
+	margin-right: 20px;
+	float: right;
+}
+
+.buttonEdit:hover {
+	cursor: pointer;
+	text-decoration:underline;
+}
+
